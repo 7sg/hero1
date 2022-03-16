@@ -1,0 +1,46 @@
+syntax = "proto3";
+package event.v1;
+option go_package = "packages/eventpb";
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+
+message Event {
+   string id = 1;
+   int64 created_at = 2;
+   string email = 3;
+   string environment = 4;
+   string component = 5;
+   string message = 6;
+   string data = 7;
+}
+
+message SaveEventResponse {}
+
+message SearchEventRequest {
+   string email = 1;
+   string environment = 2;
+   string component = 3;
+   string text = 4;
+   google.protobuf.Timestamp date = 5;
+}
+
+message SearchEventResponse {
+   repeated Event events = 1;
+}
+
+service EventService {
+  rpc Save(Event) returns (SaveEventResponse) {
+       option (google.api.http) = {
+            post: "/v1/event"
+            body: "*"
+       };
+  }
+
+  rpc Search(SearchEventRequest) returns (SearchEventResponse) {
+       option (google.api.http) = {
+              get: "/v1/event"
+       };
+  }
+}
