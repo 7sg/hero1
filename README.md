@@ -59,16 +59,15 @@ Search events with filters,
 
 Save event
 
-`curl -X POST \
-   http://localhost:8080/v1/event \
-   -H 'Content-Type: application/json' \
-   -d '{
-   "created_at":1526123095,
-   "email": "diego@hero1.com",
-   "environment": "production",
-   "component": "orders",
-   "message": "the buyer #123456 has placed an order successfully",
-   "data": "{ \"order_id\": 123, \"amount\":300, \"created_at\":1526123095}"
+`curl --location --request POST 'http://localhost:8080/v1/event' \
+ --header 'Content-Type: application/json' \
+ --data-raw '{
+     "created_at": 1526123095,
+     "email": "abc@hero1.com",
+     "environment": "production",
+     "component": "orders",
+     "message": "the buyer #123456 has placed an order successfully",
+     "data": "{ \"order_id\": 123, \"amount\":300, \"created_at\":1526123095}"
  }'`
 
 
