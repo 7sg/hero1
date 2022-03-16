@@ -70,6 +70,7 @@ Save event
      "data": "{ \"order_id\": 123, \"amount\":300, \"created_at\":1526123095}"
  }'`
 
+# GRPC Request/Response
 
 # ![GRPC Save Event](save_event.png)
 # ![GRPC Search Event](search_event.png)
