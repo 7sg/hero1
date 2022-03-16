@@ -71,6 +71,10 @@ Save event
  }'`
 
 
+# ![GRPC Save Event](save_event.png)
+# ![GRPC Search Event](search_event.png)
+ 
+
 # Structure of the service
 `hero1/.githooks` will contain commit message format, pre commit checks etc.
 
